@@ -2,6 +2,10 @@
   display: flex;
   justify-content: center;
   padding: 5px 3px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .status-bar__column {
@@ -11,10 +15,13 @@
   margin-right: 5px;
 }
 .status-bar__column:nth-child(2) {
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 .status-bar__column:last-child {
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 .status-bar__column .fa-battery-full {
   margin: 0 5px;
