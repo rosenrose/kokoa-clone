@@ -1,0 +1,20 @@
+#container {
+  height: 1000vh;
+}
+
+.a {
+  width: 10em;
+  height: 10em;
+  margin: 1em;
+  background-color: red;
+}
+
+#a {
+  /* position: fixed; */
+}
+#b {
+  background-color: wheat;
+  position: fixed;
+  top: 5em;
+  left: -2em;
+}
