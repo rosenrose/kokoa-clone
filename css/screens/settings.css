@@ -1,0 +1,41 @@
+.settings-list:first-child {
+  margin-bottom: 15px;
+}
+.settings-list:last-child {
+  margin-top: 15px;
+}
+
+hr {
+  margin-left: calc(var(--horizontal-space) * -1);
+  width: 100vw;
+  opacity: 0.3;
+}
+
+.settings__setting {
+  padding: 20px 0;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.settings__setting:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.settings__setting i {
+  margin-right: 20px;
+  font-size: 22px;
+  opacity: 0.8;
+}
+
+.settings__setting-column {
+  display: flex;
+  align-items: center;
+}
+.settings__setting-column .badge {
+  font-size: 12px;
+  margin-left: 12px;
+}
+.settings__setting-column:last-child {
+  opacity: 0.5;
+}

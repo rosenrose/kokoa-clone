@@ -1,7 +1,7 @@
 .user-component {
   justify-content: space-between;
-  margin-bottom: 15px;
 }
+
 .user-component,
 .user-component__column:first-child {
   display: flex;
@@ -41,6 +41,10 @@
   margin-top: 8px;
   color: var(--gray-kokoa);
   font-size: 17px;
+}
+.user-component__exclamation {
+  color: rgb(255, 91, 73);
+  margin-left: 3px;
 }
 
 .user-component__time {
