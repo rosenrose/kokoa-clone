@@ -17,25 +17,11 @@
 }
 
 .nav__notification {
-  background-color: tomato;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  color: white;
-  font-weight: 600;
   position: absolute;
   top: -20px;
   right: -10px;
 }
 .nav__notification--none {
-  background-color: tomato;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  position: absolute;
   top: -15px;
   right: -5px;
 }
