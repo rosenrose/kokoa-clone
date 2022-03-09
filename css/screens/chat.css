@@ -1,6 +1,12 @@
+:root {
+  --bubble-radius: 15px;
+  --bubble-margin: 5px;
+  --reply-disappear: 80px;
+}
+
 #chat-screen {
   background-color: var(--chat-bgcolor);
-  height: 1000vh;
+  height: 500vh;
 }
 
 #chat-screen .status-bar {
@@ -11,11 +17,172 @@
   width: 100%;
   box-sizing: border-box;
   position: fixed;
-  top: -5px;
+  top: 0;
   background-color: var(--chat-bgcolor);
   z-index: 1;
 }
 
 .main-chat {
-  margin-top: 130px;
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.8s linear;
+}
+
+.chat__timestamp {
+  color: white;
+  background-color: #92a4b2;
+  padding: 15px;
+  border-radius: 25px;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.message-row {
+  width: 100%;
+  display: flex;
+  /* align-self: flex-start; */
+  margin-bottom: 25px;
+  animation: appearLeft 0.5s linear;
+}
+.message-row img {
+  width: 50px;
+  height: 50px;
+  border-radius: 40%;
+  margin-right: 10px;
+}
+
+.message__author {
+  margin-bottom: 5px;
+}
+.message__author,
+.message__time {
+  opacity: 0.8;
+  font-size: 14px;
+}
+.message__info {
+  display: flex;
+  align-items: flex-end;
+}
+.message__bubble {
+  background-color: white;
+  padding: 13px;
+  border-radius: var(--bubble-radius);
+  border-top-left-radius: 0;
+  margin-right: var(--bubble-margin);
+  font-size: 18px;
+}
+
+.message-row--own {
+  justify-content: flex-end;
+  animation: appearRight 0.5s linear;
+}
+.message-row--own .message__info {
+  flex-direction: row-reverse;
+}
+.message-row--own .message__bubble {
+  background-color: var(--yellow-kokoa);
+  border-top-left-radius: var(--bubble-radius);
+  border-top-right-radius: 0;
+  margin-left: var(--bubble-margin);
+  margin-right: 0;
+  /* order: 1; */
+}
+
+.reply {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 25px;
+  transition: transform 0.3s ease-in-out;
+}
+.reply:focus-within {
+  transform: translateY(var(--reply-disappear));
+}
+
+.reply :is(.reply__column:first-child, .reply__column:last-child *:not(input)) {
+  transition: opacity 0.3s ease-in-out;
+}
+.reply:focus-within :is(.reply__column:first-child, .reply__column:last-child *:not(input)) {
+  opacity: 0;
+}
+
+.reply__column:first-child {
+  width: 10%;
+}
+.reply__column:last-child {
+  width: 90%;
+  position: relative;
+}
+
+.reply input {
+  width: 100%;
+  padding: 10px;
+  border: var(--main-border);
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+}
+.reply input:focus {
+  width: 90vw;
+  transform: translateX(-12%) translateY(calc(var(--reply-disappear) * -1));
+}
+
+.reply__column > i {
+  opacity: 0.5;
+}
+.reply__column:last-child > i,
+.reply__column:last-child button {
+  position: absolute;
+  right: -18px;
+  top: 3.5px;
+}
+.reply__column:last-child > i {
+  right: 20px;
+  top: 18px;
+}
+
+.reply__column button {
+  background-color: var(--yellow-kokoa);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+.reply__column button:focus,
+.reply__column button:active {
+  outline: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes appearLeft {
+  from {
+    transform: translateX(-15px);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes appearRight {
+  from {
+    transform: translateX(15px);
+  }
+  to {
+    transform: none;
+  }
 }
